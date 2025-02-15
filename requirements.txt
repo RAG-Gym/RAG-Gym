@@ -1,0 +1,13 @@
+datasets==3.2.0
+tqdm==4.67.0
+transformers==4.47.0
+trl==0.13.0
+wandb==0.18.7
+peft==0.14.0
+openai==1.16.1
+faiss-cpu==1.7.4
+python-liquid==1.10.2
+sentence_transformers==2.6.1
+numpy==1.24.4
+httpx==0.25.2
+pyserini==0.36.0
