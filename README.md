@@ -4,7 +4,7 @@
 
 [![Preprint](https://img.shields.io/badge/preprint-available-brightgreen)](https://arxiv.org/abs/2502.13957)
 [![Homepage](https://img.shields.io/badge/homepage-available-blue)](https://rag-gym.github.io/)
-[![Models](https://img.shields.io/badge/corpus-available-yellow)](https://huggingface.co/RAG-Gym)
+[![Models](https://img.shields.io/badge/models-available-yellow)](https://huggingface.co/RAG-Gym)
 
 ## Table of Contents
 - [Introduction](#introduction)
