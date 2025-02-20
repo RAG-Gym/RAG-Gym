@@ -2,6 +2,10 @@
 
 `RAG-Gym` is a unified framework for optimizing agentic RAG with process supervision.   
 
+[![Preprint](https://img.shields.io/badge/preprint-available-brightgreen)](https://arxiv.org/abs/2502.13957)
+[![Homepage](https://img.shields.io/badge/homepage-available-blue)](https://rag-gym.github.io/)
+[![Models](https://img.shields.io/badge/corpus-available-yellow)](https://huggingface.co/RAG-Gym)
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Requirements](#requirements)
@@ -13,6 +17,7 @@
 - - - [Direct Preference Optimization (DPO)](#process-supervision-with-direct-preference-optimization-dpo)
 - - - [Process Reward Modeling (PRM)](#process-supervision-with-process-reward-modeling-prm)
 - - [Inference with PRM](#inference-of-agents-with-process-reward-models)
+- [Citation](#citation)
 
 ## Introduction
 
@@ -20,7 +25,7 @@ The figure below shows the overview of RAG-Gym: (a) RAG-Gym formulates the knowl
 Decision Process (MDP). The process reward data is collected by randomly sampling action candidates at each time step and using an
 external annotator to select the best one. (b) Different process supervision methods implemented in RAG-Gym.
 
-<img src="figs/rag_gym.png" alt="Alt text" width="80%"/>
+<img src="figs/rag_gym.png" alt="Alt text" width="100%"/>
 
 ## Requirements
 
@@ -137,4 +142,15 @@ for i in range(max_iterations):
 
 # print(f"Cache of retrieved documents:\n\n{observation.history.return_as_json(return_documents=True)}")
 print(f"Cache of summarized answers:\n\n{agent.rag_module.qa_cache}")
+```
+
+
+## Citation
+```
+@article{xiong2024raggym,
+    title={RAG-Gym: Optimizing Reasoning and Search Agents with Process Supervision}, 
+    author={Guangzhi Xiong and Qiao Jin and Xiao Wang and Yin Fang and Haolin Liu and Yifan Yang and Fangyuan Chen and Zhixing Song and Dengyu Wang and Minjia Zhang and Zhiyong Lu and Aidong Zhang},
+    journal={arXiv preprint arXiv:2502.13957},
+    year={2025}
+}
 ```
