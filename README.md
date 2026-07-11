@@ -29,6 +29,14 @@ external annotator to select the best one. (b) Different process supervision met
 
 ## Requirements
 
+**System requirements.**
+
+- **Operating system:** Linux (developed and tested on a Linux environment).
+- **Hardware:** a CUDA-enabled NVIDIA GPU is required to run the language-model agents. Model training (SFT/DPO/PPO/PRM) used NVIDIA A100 80GB GPUs; single-question inference runs on one GPU. No other non-standard hardware is needed.
+- **Tested package versions:** PyTorch 2.1.1+cu121, transformers 4.47.0, trl 0.13.0, peft 0.14.0, datasets 3.2.0, pyserini 0.36.0 (full pinned list in `requirements.txt`).
+
+**Installation.**
+
 - Install PyTorch suitable for your system's CUDA version by following the [official instructions](https://pytorch.org/get-started/locally/) (2.1.1+cu121 in our case).
 
 - Install the required packages using: `pip install -r requirements.txt`.
@@ -37,7 +45,9 @@ external annotator to select the best one. (b) Different process supervision met
 
 - `Git-lfs` is required to download corpora for the information retrieval environment.
 
-- `Java/21` is requried for using BM25.
+- `Java/21` is required for using BM25.
+
+- **Typical install time (approximate):** installing the Python packages with `pip install -r requirements.txt` takes roughly 5-15 minutes on a standard machine with a good network connection. Downloading the retrieval corpora with Git-lfs is a separate step and can take longer depending on corpus size and bandwidth.
 
 ## Usage
 
@@ -85,6 +95,10 @@ for i in range(max_iterations):
 # print(f"Cache of retrieved documents:\n\n{observation.history.return_as_json(return_documents=True)}")
 print(f"Cache of summarized answers:\n\n{agent.rag_module.qa_cache}")
 ```
+
+**Expected output.** At each time step the agent prints the candidate action(s) it generates and the action it takes (as JSON), such as a search query or a final predicted answer, and on termination it prints the cache of summarized answers. The exact text varies between runs because generation is stochastic at non-zero temperature.
+
+**Expected run time (approximate).** On a single modern GPU (for example an A100), a single-question run including model loading typically completes in a few minutes, most of which is the one-time model load, after which each step takes on the order of seconds. A CUDA-enabled GPU is required; the 8B models are not practical to run on a CPU-only desktop.
 
 ### Training of Agents with RAG-Gym
 
