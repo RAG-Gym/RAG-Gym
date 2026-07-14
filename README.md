@@ -161,10 +161,10 @@ print(f"Cache of summarized answers:\n\n{agent.rag_module.qa_cache}")
 
 ## Citation
 ```
-@article{xiong2025raggym,
-    title={RAG-Gym: Optimizing Reasoning and Search Agents with Process Supervision}, 
+@article{xiong2026supervising,
+    title={Supervising the search process produces reliable and generalizable information-seeking agents}, 
     author={Guangzhi Xiong and Qiao Jin and Xiao Wang and Yin Fang and Haolin Liu and Yifan Yang and Fangyuan Chen and Zhixing Song and Dengyu Wang and Minjia Zhang and Zhiyong Lu and Aidong Zhang},
     journal={arXiv preprint arXiv:2502.13957},
-    year={2025}
+    year={2026}
 }
 ```
