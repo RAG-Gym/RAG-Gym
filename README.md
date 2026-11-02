@@ -2,7 +2,7 @@
 
 `RAG-Gym` is a unified framework for optimizing agentic RAG with process supervision.   
 
-[![Preprint](https://img.shields.io/badge/preprint-available-brightgreen)](https://arxiv.org/abs/2502.13957)
+[![Paper](https://img.shields.io/badge/paper-available-brightgreen)](https://www.nature.com/articles/s41467-026-78807-z)
 [![Homepage](https://img.shields.io/badge/homepage-available-blue)](https://rag-gym.github.io/)
 [![Models](https://img.shields.io/badge/models-available-yellow)](https://huggingface.co/RAG-Gym)
 
