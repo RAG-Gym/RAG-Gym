@@ -52,6 +52,22 @@ python src/evaluate.py \
     --data hotpotqa --n_actions 10 --temperature 1.0
 ```
 
+## Evaluation regression tests
+
+The evaluation tests run on CPU without downloading models or corpora. They
+require Python and `tqdm` (already included in `requirements.txt`):
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+For MedQA, explicit answer formats take precedence over the standalone-letter
+fallback. The fallback does not treat capitals inside words such as `Answer`
+or `Cannot` as choice labels. It only extracts a unique standalone `A`, `B`, `C`, or `D`;
+otherwise it leaves the text unchanged. These extraction rules can change
+scores for nonconforming model responses. Compare scoring versions on the same
+saved predictions before comparing experiment results.
+
 ## Common arguments
 
 | Argument | Meaning |

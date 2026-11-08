@@ -8,9 +8,10 @@ sys.path.append("./src")
 from hotpot_evaluate_v1 import normalize_answer, f1_score, exact_match_score
 
 def normalize_answer_multichoice(s):
-    ans = re.findall("(A|B|C|D)", s)
-    if len(ans) > 0:
-        return ans[0].upper()
+    # Match a bare label without mistaking capitals in prose for an answer.
+    ans = re.fullmatch(r"\s*([ABCD])\s*", s)
+    if ans:
+        return ans.group(1)
     ans = re.findall("^\s*[\"\']?(A|B|C|D)[$/,\.\"\':]", s)
     if len(ans) > 0:
         return ans[0].upper()
@@ -44,6 +45,11 @@ def normalize_answer_multichoice(s):
     ans = re.findall(r"is:?[\s\n]*\*?\*?(A|B|C|D)", s)
     if len(ans) > 0:
         return ans[0].upper()
+    # Prefer the explicit formats above; only fall back to a standalone label
+    # when the text identifies a single choice, including wrappers such as (B).
+    choices = set(re.findall(r"\b[ABCD]\b", s))
+    if len(choices) == 1:
+        return choices.pop()
     return s.strip()
 
 def locate_answer(s):
